@@ -150,10 +150,3 @@ jobs:
           name: ${{ github.event.organization.login }}/${{ github.event.repository.name }}/latest
           path: ./artifacts/versioned
 
-      # Webhook to LowCodeUnit
-      - name: Invoke deployment hook
-        uses: fathym/workflow-webhook@v2
-        env:
-          webhook_url: ${{ secrets.LCU_WEBHOOK_URL }}
-          webhook_secret: ${{ secrets.LCU_WEBHOOK_SECRET }}
-          data: '{ "EnterpriseLookup": "${{ secrets.LCU_ENTERPRISE_LOOKUP }}", "Username": "${{ secrets.LCU_USERNAME }}" }'
